@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
@@ -17,34 +18,32 @@
 
       <div class="calculator__body">
         <div class="calculator__clear">
-          <button class="btn btn--reset">reset</button>
-          <button class="btn btn--del">del</button>
+          <button class="btn btn--reset" onclick="clearInput('RESET')">reset</button>
+          <button class="btn btn--del" onclick="clearInput('DEL')">del</button>
         </div>
         <div class="calculator__buttons">
-          <button class="btn btn--number">7</button>
-          <button class="btn btn--number">8</button>
-          <button class="btn btn--number">9</button>
-          <button class="btn btn--number">4</button>
-          <button class="btn btn--number">5</button>
-          <button class="btn btn--number">6</button>
-          <button class="btn btn--number">1</button>
-          <button class="btn btn--number">2</button>
-          <button class="btn btn--number">3</button>
-          <button class="btn btn--number">0</button>
-          <button class="btn btn--number">.</button>
-          <button class="btn btn--equal">=</button>
+          <button class="btn btn--number" onclick="addNumber('7')">7</button>
+          <button class="btn btn--number" onclick="addNumber('8')">8</button>
+          <button class="btn btn--number" onclick="addNumber('9')">9</button>
+          <button class="btn btn--number" onclick="addNumber('4')">4</button>
+          <button class="btn btn--number" onclick="addNumber('5')">5</button>
+          <button class="btn btn--number" onclick="addNumber('6')">6</button>
+          <button class="btn btn--number" onclick="addNumber('1')">1</button>
+          <button class="btn btn--number" onclick="addNumber('2')">2</button>
+          <button class="btn btn--number" onclick="addNumber('3')">3</button>
+          <button class="btn btn--number" onclick="addNumber('0')">0</button>
+          <button class="btn btn--number" onclick="addNumber('.')">.</button>
+          <button class="btn btn--equal" onclick="addNumber('=')">=</button>
         </div>
         <div class="calculator__operations">
-          <button class="btn btn--operation">+</button>
-          <button class="btn btn--operation">-</button>
-          <button class="btn btn--operation">*</button>
-          <button class="btn btn--operation">/</button>
+          <button class="btn btn--operation" onclick="resolve('+')">+</button>
+          <button class="btn btn--operation" onclick="resolve('-')">-</button>
+          <button class="btn btn--operation" onclick="resolve('*')">*</button>
+          <button class="btn btn--operation" onclick="resolve('/')">/</button>
         </div>
       </div>
     </div>
   </main>
-
-  <script src="js/script.js" type="module"></script>
 </body>
 
 </html>

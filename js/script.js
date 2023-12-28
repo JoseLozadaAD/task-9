@@ -1,18 +1,10 @@
 const input = document.querySelector('.calculator__input');
-const clearButtons = document.querySelector('.calculator__clear');
-const numberButtons = document.querySelector('.calculator__buttons');
-const operationButtons = document.querySelector('.calculator__operations');
 
 let firstValue = 0;
 let operator = null;
 let flag = false;
 
-numberButtons.addEventListener('click', (event) => {
-  if (!event.target.closest('button')) return;
-
-  const target = event.target;
-  const value = target.textContent;
-
+const addNumber = (value) => {
   if (input.value.includes('.') && value === '.') return;
 
   if (value === '=') {
@@ -27,12 +19,9 @@ numberButtons.addEventListener('click', (event) => {
   }
 
   input.value === '0' ? (input.value = value) : (input.value += value);
-});
+};
 
-clearButtons.addEventListener('click', (event) => {
-  if (!event.target.closest('button')) return;
-
-  const value = event.target.textContent.toUpperCase();
+const clearInput = (value) => {
   if (value === 'RESET') {
     input.value = firstValue = '0';
     operator = null;
@@ -43,22 +32,18 @@ clearButtons.addEventListener('click', (event) => {
       ? (input.value = '0')
       : (input.value = input.value.slice(0, -1));
   }
-});
+};
 
-operationButtons.addEventListener('click', (event) => {
-  if (!event.target.closest('button')) return;
-
-  const value = event.target.textContent;
-
+const resolve = (operation) => {
   if (!operator) {
     firstValue = Number(input.value);
-    operator = value;
+    operator = operation;
     flag = true;
     return;
   }
 
-  operations(value);
-});
+  operations(operation);
+};
 
 const operations = (valueOperator) => {
   if (operator) {
@@ -82,6 +67,8 @@ const operations = (valueOperator) => {
 
     flag = true;
     operator = valueOperator;
-    input.value = firstValue = result.toFixed(4);
+    input.value = firstValue = result.toFixed(2);
   }
 };
+
+module.exports = { addNumber, clearInput, resolve, operations };
