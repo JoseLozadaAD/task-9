@@ -46,29 +46,27 @@ const resolve = (operation) => {
 };
 
 const operations = (valueOperator) => {
-  if (operator) {
-    const secondValue = Number(input.value);
-    let result = 0;
+  const secondValue = Number(input.value);
+  let result = 0;
 
-    switch (operator) {
-      case '+':
-        result = firstValue + secondValue;
-        break;
-      case '-':
-        result = firstValue - secondValue;
-        break;
-      case '*':
-        result = firstValue * secondValue;
-        break;
-      case '/':
-        result = firstValue / secondValue;
-        break;
-    }
-
-    flag = true;
-    operator = valueOperator;
-    input.value = firstValue = result.toFixed(2);
+  switch (operator) {
+    case '+':
+      result = firstValue + secondValue;
+      break;
+    case '-':
+      result = firstValue - secondValue;
+      break;
+    case '*':
+      result = firstValue * secondValue;
+      break;
+    case '/':
+      result = firstValue / secondValue;
+      break;
   }
+
+  flag = true;
+  operator = valueOperator;
+  input.value = firstValue = result.toFixed(2);
 };
 
 module.exports = { addNumber, clearInput, resolve, operations };
